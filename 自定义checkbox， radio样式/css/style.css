@@ -1,0 +1,102 @@
+/*伪元素实现*/
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+.radio1,
+.radio2
+{
+    display: inline-block;
+
+    width: 14px;
+    height: 14px;
+    margin: 10px;
+
+    border: 1px solid #ccc;
+    border-radius: 50%;
+}
+
+.checkbox1,
+.checkbox2
+{
+    display: inline-block;
+
+    width: 13px;
+    height: 13px;
+    margin: 10px;
+
+    border: 1px solid #ccc;
+}
+
+input
+{
+    display: none;
+}
+
+#radio1:checked ~ .radio1,
+#checkbox1:checked ~ .checkbox1
+{
+    border: 1px solid red;
+}
+
+#radio1:checked ~ .radio1:before,
+#checkbox1:checked ~ .checkbox1:before
+{
+    display: inline-block;
+}
+
+.radio1:before
+{
+    position: absolute;
+    top: 33px;
+    left: 16px;
+
+    display: none;
+
+    width: 5px;
+    height: 5px;
+
+    content: '';
+
+    border-radius: 50%;
+    background-color: red;
+}
+
+.checkbox1:before
+{
+    position: absolute;
+    top: 62px;
+    left: 12px;
+
+    display: none;
+
+    width: 5px;
+    height: 5px;
+
+    content: '✔';
+
+    color: red;
+}
+
+/*雪碧图实现*/
+#radio2:checked ~ .radio2
+{
+    width: 16px;
+    height: 16px;
+
+    border: none;
+    background: url(../img/bg.png) no-repeat;
+    background-position: -59px -10px;
+}
+
+#checkbox2:checked ~ .checkbox2
+{
+    width: 12px;
+    height: 12px;
+
+    border-color: red;
+    background: url(../img/bg.png) no-repeat;
+    background-position: -61px -33px;
+}
