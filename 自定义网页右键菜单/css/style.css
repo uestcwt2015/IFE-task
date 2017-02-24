@@ -1,0 +1,50 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+#menu
+{
+    position: absolute;
+
+    display: none;
+
+    width: 200px;
+    padding: 2px 0;
+
+    cursor: default;
+    /*设置文字无法被选中*/
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 4px grey;
+}
+li
+{
+    font-size: 13px;
+    line-height: 25px;
+
+    height: 25px;
+
+    list-style: none;
+
+    text-indent: 1.5em;
+
+    color: #222;
+}
+li:hover
+{
+    background-color: #e5e5e5;
+}
+
+.right
+{
+    float: right;
+
+    margin-right: 1.5em;
+
+    color: grey;
+}
