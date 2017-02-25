@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正则表达式之入门</title>
+</head>
+<body>
+	<label for="number">请输入手机号</label>
+	<input type="text" name="number" id="number">
+	<button id="button1">检查</button>
+	<div class="answer"></div>
+	</br>
+	<label for="word">请输入字符串</label>
+	<input type="text" name="word" id="word">
+	<button id="button2">检查</button>
+	<div class="answer"></div>
+<script type="text/javascript">
+	var re1 = /^1[3|4|5|7|8][0-9]{9}$/;
+	var re2 = /\b(\w+)\b\s+\1\b/;
+	var phoneNumber = document.getElementById("number");
+	var words = document.getElementById("word");
+	var answer = document.getElementsByClassName('answer');
+	var button1 = document.getElementById('button1');
+	var button2 = document.getElementById("button2");
+	function phoneTest(b){
+		var flag = re1.test(b);
+		console.log(flag)
+		answer[0].innerText = flag;
+	}
+	function wordTest(c){
+		var flag = re2.test(c);
+		console.log(flag);
+		answer[1].innerText = flag;
+	}
+	button1.onclick = function(){
+		phoneTest(parseInt(phoneNumber.value));
+	}
+	button2.onclick = function(){
+		wordTest(words.value);
+	}
+</script>
+</body>
+</html>
