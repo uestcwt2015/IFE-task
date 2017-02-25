@@ -1,0 +1,58 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+.example
+{
+    width: 400px;
+    height: 300px;
+    margin: 20px;
+    padding: 30px 20px;
+
+    border: 1px solid #eee;
+    box-shadow: 2px 2px 4px #eee;
+}
+.panel
+{
+    margin: 10px 0;
+
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.title
+{
+    font-size: 14px;
+
+    display: block;
+
+    height: 14px;
+    padding: 8px 20px;
+
+    border-bottom: 1px solid #ddd;
+    background-color: #eee;
+}
+.collapse
+{
+    display: none;
+
+    height: 100px;
+    padding: 20px;
+}
+label:hover
+{
+    text-decoration: underline;
+}
+
+#panel1:checked ~ .title1 + div.collapse1,
+#panel2:checked ~ .title2 + div.collapse2,
+#panel3:checked ~ .title3 + div.collapse3
+{
+    display: block;
+}
+
+input
+{
+    display: none;
+}
