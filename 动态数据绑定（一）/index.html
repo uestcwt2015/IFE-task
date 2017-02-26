@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动态数据绑定（一）</title>
+</head>
+<body>
+	<p>请打开控制台测试</p>
+	<script type="text/javascript">
+		console.log("1");
+		function Observer(data){
+			this.data = data;
+			this.walk(data);
+		}
+
+		var p = Observer.prototype;
+
+		p.walk = function(obj){
+			let val;
+			for(let key in obj){
+				//for-in会返回原型链上所有属性
+				if(obj.hasOwnProperty(key)){
+					val = obj.key;
+
+					if(typeof val === Object){
+						new Observer(val);
+					}
+
+					this.convert(key,val);
+				}
+			}
+		}
+		//利用Object。defineProperty函数重新定义set和get
+		p.convert = function(key, val){
+			Object.defineProperty(this.data,key,{
+				enumerable: true,
+				configurable: true,
+
+				get: function(){
+					console.log("你访问了" + key);
+					return val;
+				},
+
+				set: function(newVal){
+					console.log('你设置了' + key + ",新的值为" + newVal);
+					if(newVal === val) return;
+					val = newVal;
+				}
+			})
+		};
+	</script>
+</body>
+</html>
