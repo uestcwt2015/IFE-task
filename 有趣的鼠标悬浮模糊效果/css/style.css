@@ -1,0 +1,110 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+
+.container {
+	width: 332px;
+	height: 208px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin: -104px 0 0 -166px;
+}
+
+.box{
+	width: 332px;
+	height: 208px;
+	background: transparent;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin: -104px 0 0 -166px;
+	opacity: 0;
+	transition: opacity 1s ease-in-out;
+}
+
+img{
+	filter: blur(0px);
+	transition: filter 1s linear;
+}
+
+.container:hover > img{
+	filter: blur(5px);
+}
+
+.container:hover > .box{
+	opacity: 0.6;
+}
+
+.content{
+	width: 246px;
+	height: 156px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -78px 0 0 -123px;
+	background-image: -webkit-linear-gradient(left, blue, red 10%, orange 20%, yellow 30%, 
+		green 40%, white 50%,blue 60%, red 70%, orange 80%, yellow 90%, green 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent; or color: transparent;
+	background-size: 200% 100%;
+	animation: move 3s infinite linear;
+}
+/*边框效果*/
+.content:before,.content:after{
+    content:" ";
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 4px solid white;
+    transition-property: width,height,left,top;
+    transition-duration: 1s;
+    transition-timing-function: ease-in;
+}
+
+.content:before{
+    height: 100%;
+    left: 50%;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    z-index: -4;
+}
+
+.box:hover > .content:before{
+    width: 100%;
+    left: 0;
+}
+
+.content:after{
+    width: 100%;
+    top: 50%;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+    z-index: -3;
+}
+
+.box:hover > .content:after{
+    height: 100%;;
+    top: 0;
+}
+
+/*文字*/
+.content span{
+	font-size: 60px;
+	height: 60px;
+	display: block;
+	margin: 48px 0;
+	padding-left: 6px;
+	color: transparent;
+}
+
+@keyframes move {
+    0%  {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: -100% 0;
+    }
+}
